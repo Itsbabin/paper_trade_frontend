@@ -41,9 +41,14 @@ export default function Markets() {
         }
        
       </div>
-      <div className="w-[30%] h-[80dvh] bg-zinc-600 rounded-lg shadow-md shadow-black flex flex-col justify-center items-center gap-2 p-2">
+      <div className="w-[30%] h-[80dvh] overflow-auto bg-zinc-600 rounded-lg shadow-md shadow-black flex flex-col justify-start items-center gap-2 p-2 flex-nowrap">
           <OptionCard name={"Nifty"}/>
           <OptionCard name={"Midcap Nifty"}/>
+          <OptionCard name={"Bank Nifty"}/>
+          <OptionCard name={"Bank Nifty"}/>
+          <OptionCard name={"Bank Nifty"}/>
+          <OptionCard name={"Bank Nifty"}/>
+          <OptionCard name={"Bank Nifty"}/>
       </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ export default function Navbar() {
     <>
       <nav className="w-screen z-20 bg-slate-950 flex flex-wrap gap-3 text-blue-200 h-14 items-center justify-between px-5 py-1 fixed">
         <div className="" id="navIcon">
-          <Link to="/" className="h-12 w-12">
+          <Link to="/" className="h-12 w-12"> 
             <BearSvg/>
           </Link>
         </div>

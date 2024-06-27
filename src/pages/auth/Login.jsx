@@ -10,7 +10,6 @@ import {login} from '../../reducers/userReducer.js'
 
 export default function Login() {
   let navigate = useNavigate();
-  let dispatch = useDispatch();
   const [useridOrEmail, setUseridOrEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -46,13 +45,13 @@ export default function Login() {
             <label htmlFor="EmailOrUserid">
               Enter email or User id
           </label>
-          <input  className=' border-2 border-black' type="text" name='EmailOrUserid' onChange={(e) => {
+          <input  className=' border-2 border-black text-black' type="text" name='EmailOrUserid' onChange={(e) => {
               setUseridOrEmail(e.target.value);
           }} required/>
           <label htmlFor="password">
              password
           </label>
-          <input className=' border-2 border-black' type="text" name='password'onChange={(e) => {
+          <input className=' border-2 border-black text-black' type="text" name='password'onChange={(e) => {
               setPassword(e.target.value);
           }} required/>
           </section>

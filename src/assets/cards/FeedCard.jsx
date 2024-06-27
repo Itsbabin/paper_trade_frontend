@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AxiosRequest from "../../utils/axiosRequest";
 import { backendUrl } from "../../const";
 import Cookies from "js-cookie";
@@ -13,7 +13,10 @@ export default function FeedCard({
   id
 }) {
 
+const [like_to_display, setLike] = useState(likes)
+
   const LikePost = async () => {
+    setLike(like_to_display+1)
      await AxiosRequest('post' ,`${backendUrl}/feed/like` ,{
       feed_id : id 
      },{
@@ -39,7 +42,7 @@ export default function FeedCard({
         <img className="h-max w-full" src={image} alt="" />
         <div className="flex justify-start items-center h-[30px] w-full ">
           <div id="likes" className=" font-bold">
-            {likes} like
+            {like_to_display} like
           </div>
           <div id="comments">{}</div>
         </div>

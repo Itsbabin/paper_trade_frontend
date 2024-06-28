@@ -6,8 +6,9 @@ export default {
   ],
   theme: {
     screens: {
-      'tablet': '600px',
-      'tabletMax': { "max" : '600px'},
+      'tablet': '670px',
+      'tabletMax': { "max" : '670px'},
+      'searchMax': { "max" : '820px'},
       // => @media (min-width: 640px) { ... }
 
       'laptop': '1024px',

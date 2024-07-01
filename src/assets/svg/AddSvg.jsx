@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AddSvg() {
+export default function AddSvg({color}) {
   return (
     <>
-    <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Capa_1" 
+    <svg fill={color || '#ffffff'} height="20px" width="20px" version="1.1" id="Capa_1" 
 	 viewBox="0 0 27.963 27.963" >
 <g>
 	<g id="c140__x2B_">

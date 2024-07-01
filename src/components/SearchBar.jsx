@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchIcon from '../assets/svg/SearchIcon'
 import { backendUrl } from '../const'
 import axios from 'axios'
+import SearchResultCard from '../assets/cards/SearchResultCard'
 
 export default function SearchBar() {
     const [search, setSearch] = useState('')
@@ -29,7 +30,6 @@ export default function SearchBar() {
                 query : search.replace(/\s/g, "")
             },{ signal });
             setsearchResult(response.data.data.response);
-            console.log(response.data.data.response);
           } catch (err) {
             if (axios.isCancel(err)) {
               console.log('Request canceled', err.message);
@@ -64,13 +64,12 @@ export default function SearchBar() {
         {
             searchResult.map((e) => {
                 return (
-                    <div key={e._id} className='h-10 px-3 m-1 py-1 text-centert text-justify w-full rounded-md hover:bg-slate-800'>{e.symbol}</div>
+                    <SearchResultCard key={e._id} symbol={e.symbol} token={e.token} name={e.name} exch_seg={e.exch_seg} />
                 )
             })
         }
         
       </div>
-    {/* tabletMax:hidden flex flex-wrap justify-between items-center gap-1 searchMax:w-[200px]  w-[350px] h-max */}
     </div>
     </>
   )

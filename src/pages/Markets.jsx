@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import InstrumentCard from '../assets/cards/InstrumentCard'
 import AxiosRequest from '../utils/axiosRequest'
 import { backendUrl } from '../const'
-import OptionCard from '../assets/cards/OptionCard'
+import OptionCard from '../assets/cards/WatchlistCard'
 
 export default function Markets() {
   const [stockData, setstockData] = useState([])

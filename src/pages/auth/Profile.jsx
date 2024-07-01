@@ -23,7 +23,7 @@ export default function Profile() {
   const [file, setFile] = useState("");
   const [feedForm, setFeedForm] = useState(false);
   const [path, setPath] = useState("");
-  const [feed, setFeed] = useState(false)
+  const [feed, setFeed] = useState(true)
   const [feedData, setFeedData] = useState([])
   const [history, setHistory] = useState(false)
   const [historyData, setHistoryData] = useState([])
@@ -31,6 +31,10 @@ export default function Profile() {
     "loading please wait...."
   );
 
+  useEffect(() => {
+   getFeed();
+  }, [])
+  
 
   let fileChange = (e) => {
     if (e.target.files) {
@@ -204,7 +208,7 @@ export default function Profile() {
               {/* {JSON.stringify(user.userData?.feed)} */}
               {
              feed &&(
-              feedData.length === 0 ? <>empty</> : feedData?.map((e) => {
+              feedData.length === 0 ? <>Loading ...</> : feedData?.map((e) => {
                 return (
                   <FeedCard
                     key={e._id}

@@ -16,6 +16,7 @@ import { backendUrl } from "./const";
 import { useDispatch } from "react-redux";
 import { login } from "./reducers/userReducer";
 import Markets from "./pages/Markets";
+import Trade from "./pages/Trade";
   
 function App() {  
   
@@ -49,6 +50,7 @@ function App() {
             <Route path="markets" element={<Markets />} />
             <Route path="about" element={<About />} />
             <Route path="watchlist" element={<Watchlist />} />
+            <Route path="trade/*" element={<Trade/>} />
             <Route path="*" element={<NoPage />} />
           </Routes>
         </Layout>

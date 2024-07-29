@@ -86,12 +86,19 @@ export default function Profile() {
       token : Cookies.get('jwt')
     })
     .then((response) => {
+      console.log(response);
       setHistoryData(response.data.oder_book)
     })
   }
 
   return (
     <>
+     <ProfilePicUpload
+              path={path}
+              setActive={setActive}
+              active={active}
+              upload={upload}
+            />
       {(loading || user.userData === null )? (
         <div className="h-max w-screen flex justify-center text-white items-center text-2xl">
           {loadingMessage}
@@ -121,12 +128,7 @@ export default function Profile() {
                 />
               )}
             </label>
-            <ProfilePicUpload
-              path={path}
-              setActive={setActive}
-              active={active}
-              upload={upload}
-            />
+           
             <span className=" w-screen flex items-center flex-col justify-end tabletMax:pr-3 pr-10 flex-wrap">
               <p className=" text-green-300 font-bold text-3xl">
                 &#8377;{user.userData?.demo_money}

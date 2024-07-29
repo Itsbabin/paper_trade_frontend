@@ -7,9 +7,9 @@ export default function ProfilePicUpload({active , path , upload , setActive}) {
         <div onClick={() =>{setActive("hidden")}} className={`${active} absolute right-8 text-5xl top-16 text-white z-10 `}>
                 <CrossSvg /> 
               </div> 
-      <label
-              htmlFor="imageUpload"
-              className={`${active} h-screen w-screen top-0 left-0 backdrop-blur-lg absolute flex justify-center gap-3 items-center flex-col`}
+      <div   style={{zIndex : 9}}   
+             htmlFor="imageUpload"
+             className={`${active} h-screen w-screen top-0 left-0 backdrop-blur-lg absolute flex justify-center gap-3 items-center flex-col`}
             >
               <img
                 name="imageUpload"
@@ -25,7 +25,7 @@ export default function ProfilePicUpload({active , path , upload , setActive}) {
               >
                 Upload
               </button>
-            </label>
+            </div>
     </>
   )
 }

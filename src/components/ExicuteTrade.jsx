@@ -31,7 +31,9 @@ export default function ExicuteTrade() {
                   </div>
              </div>
              <div className="w-full h-max flex justify-around items-center p-6">
-              <div className="w-1/3 font-bold text-2xl h-14 flex justify-center items-center bg-green-900 rounded-2xl">Buy</div>
+              <div className="w-1/3 font-bold text-2xl h-14 flex justify-center items-center bg-green-900 rounded-2xl" onClick={() => {
+                //  getLTP()
+              }}>Buy</div>
               <div className="w-1/3 font-bold text-2xl h-14 flex justify-center items-center bg-red-800 rounded-2xl">Sell</div>
              </div>
            </div>

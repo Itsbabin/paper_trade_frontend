@@ -7,17 +7,6 @@ import SearchResultCard from '../assets/cards/SearchResultCard'
 export default function SearchBar() {
     const [search, setSearch] = useState('')
     const [searchResult, setsearchResult] = useState([])
-    // useEffect(() => {
-    //     if(search != ''){
-    //     AxiosRequest('post',`${backendUrl}/trade/instrument/search`,{
-    //         query : search
-    //     })
-    //     .then((result) => {
-    //         setsearchResult(result.data);
-    //         console.log(result.data);
-    //     })     
-    // }
-    // }, [search])
 
     useEffect(() => {
         const controller = new AbortController();
@@ -57,14 +46,14 @@ export default function SearchBar() {
      <div className="container flex justify-between items-center gap-1 searchMax:w-[230px]  w-max">
          <input onChange={(e) => {
             setSearch(e.target.value)
-         }} className='searchMax:w-[200px]  w-[350px] px-4 h-8 bg-slate-800 rounded-full' placeholder='Search instrument to trade' type="text" />
+         }} className='searchMax:w-[200px]  w-[350px] px-4 h-8 bg-zinc-900 rounded-full' placeholder='Search instrument to trade' type="text" />
       <SearchIcon/>
     </div>
-     <div className=" searchMax:w-[280px] w-[350px] max-h-52 min-h-0 flex gap-1 flex-wrap overflow-auto rounded-md  bg-slate-900">
+     <div className=" searchMax:w-[280px] absolute w-[350px] max-h-52 min-h-0 flex gap-1 flex-wrap overflow-auto rounded-md top-14 bg-slate-900">
         {
             searchResult.map((e) => {
                 return (
-                    <SearchResultCard key={e._id} symbol={e.symbol} token={e.token} name={e.name} exch_seg={e.exch_seg} />
+                    <SearchResultCard key={e._id} lotsize={e.lotsize} strike={e.strike} expiry={e.expiry} symbol={e.symbol} token={e.token} name={e.name} exch_seg={e.exch_seg}  />
                 )
             })
         }

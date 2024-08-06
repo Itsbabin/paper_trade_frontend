@@ -15,7 +15,7 @@ export default function ProfilePicUpload({active , path , upload , setActive}) {
                 name="imageUpload"
                 id="imageUpload"
                 src={path}
-                className="h-[30%] object-contain aspect-square rounded-full"
+                className="h-[30%] object-fill aspect-square rounded-full"
                 alt="uploadable photo"
                 accept="image/x-png,image/gif,image/jpeg"
               />

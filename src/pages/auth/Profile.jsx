@@ -1,12 +1,8 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import AxiosRequest from "../../utils/axiosRequest";
 import { backendUrl } from "../../const";
-import FeedSvg from "../../assets/svg/FeedSvg";
-import HistorySvg from "../../assets/svg/HistorySvg";
-import ProfileSvg from "../../assets/svg/ProfileSvg";
 import HistoryCard from "../../assets/cards/HistoryCard";
 import FeedForm from "../../assets/form/FeedForm";
 import CrossSvg from "../../assets/svg/CrossSvg";
@@ -15,7 +11,6 @@ import FeedCard from "../../assets/cards/FeedCard";
 import AddSvg from "../../assets/svg/AddSvg";
 
 export default function Profile() {
-  let navigate = useNavigate();
 
   let user = useSelector((state) => state.user);
   const [loading, setLoading] = useState(false);
@@ -105,11 +100,11 @@ export default function Profile() {
         </div>
       ) : (
         <>
-          <div className={`imageContainer bg-slate-900 px-10 py-5 duration-700 h-[30vh] tabletMax:h-[20vh] w-screen flex justify-around items-center gap-2`}>
-            <label
-              htmlFor="profilePic"
-              className="profilePic h-[100%] border-4 border-white bg-white aspect-square rounded-full flex justify-start items-center cursor-pointer"
+          <div className={`imageContainer bg-zinc-950 px-10 py-5 duration-700 h-[30vh] w-screen flex justify-between items-center gap-2 `}>
+            <div
+              className="profilePic h-[100%] bg-zinc-950 flex justify-start items-center gap-4"
             >
+            <label htmlFor="profilePic" className="h-[182px] w-[182px]">
               <input
                 type="file"
                 id="profilePic"
@@ -119,31 +114,54 @@ export default function Profile() {
               />
               {user.userData?.profile_pic_URL === "" ||
               user.userData?.profile_pic_URL === undefined ? (
-                <ProfileSvg />
+                <img
+                src="./public/DP.png"
+                className="h-[100%] object-fill aspect-square cursor-pointer rounded-full"
+                alt="profile picture"
+              />
               ) : (
                 <img
+                 htmlFor="profilePic"
                   src={user.userData?.profile_pic_URL}
-                  className="h-[100%] object-contain aspect-square rounded-full"
+                  // src="./public/DP.png"
+                  className="h-[182px] w-[182px] object-fill aspect-square cursor-pointer rounded-full"
                   alt="profile picture"
                 />
               )}
             </label>
-           
-            <span className=" w-screen flex items-center flex-col justify-end tabletMax:pr-3 pr-10 flex-wrap">
-              <p className=" text-green-300 font-bold text-3xl">
+           <div className="h-full w-[200px] bg-zinc-950 flex justify-start flex-wrap flex-col-reverse pb-5">
+              <span className=" w-[200px]">exicuted {user.userData?.oder_book.length} trades</span>
+              <span className="text-2xl font-bold  w-[200px]">{user.userData?.name}</span>
+           </div>
+            </div>
+            <span className=" w-max h-full flex items-center flex-col justify-center tabletMax:pr-3 flex-wrap pb-5 pr-10">
+              <p className=" text-green-500 font-bold text-3xl">
                 &#8377;{user.userData?.demo_money}
               </p>
               <p className="font-bold text-white text-lg">Total Portfolio</p>
             </span>
+            <div className="h-full w-[280px] flex justify-end items-end gap-3 pb-5">
+              <div className="duration-500 cursor-pointer bg-zinc-200 text-black font-bold justify-around flex items-center px-4 hover:bg-zinc-50 rounded-2xl rounded-ee-none py-2 gap-3">
+                Edit Profile
+                </div>
+            <div
+                onClick={() => {
+                  setFeedForm(true);
+                }}
+                className=" duration-500 cursor-pointer bg-zinc-200 text-black font-bold justify-around flex items-center px-4 hover:bg-zinc-50 rounded-2xl rounded-br-none py-2 gap-3"
+              >
+               <AddSvg color={'#000000'}/> upload 
+              </div>
+            </div>
           </div>
-          <div className="h-[60vh] w-screen pt-0 bg-slate-800">
+          <div className="h-[60vh] w-screen pt-0 bg-zinc-900 mt-[-22px] ">
             <div
               id="profileOptions"
-              className="w-screen h-max flex justify-between items-center py-2 gap-3 px-6 shadow-black shadow-md bg-slate-700"
+              className="w-screen h-max flex justify-start items-center py-2 gap-3 px-20 shadow-black shadow-md bg-zinc-950 sticky"
             >
               <div
                 id="selectIcon "
-                className="flex justify-start items-center gap-2"
+                className="flex justify-start items-center gap-8"
               >
                 <div
                   onClick={() => {
@@ -151,8 +169,8 @@ export default function Profile() {
                     setHistory(false)
                     getFeed()
                   }}
-                className={`flex cursor-pointer justify-center shadow-md shadow-black items-center px-3 duration-500 rounded-lg hover:bg-slate-600 ${feed ? "bg-slate-900 " : ""}`}>
-                  <FeedSvg /> timeline
+                className={`flex cursor-pointer justify-center items-center px-3 duration-200 text-xl ${feed ? "underline2 text-zinc-50" : "text-zinc-400"}`}>
+                Posts
                 </div>
                 <div
                 onClick={() => {
@@ -160,18 +178,11 @@ export default function Profile() {
                   setHistory(true)
                   getHistory()
                 }}
-                className={`flex cursor-pointer justify-center shadow-md shadow-black items-center px-3 z-0 duration-500 rounded-lg scale-95 hover:bg-slate-600 ${history ? "bg-slate-900 " : ""}`}>
-                  <HistorySvg />History
+                className={`flex cursor-pointer justify-start items-center duration-200 after:text-xl text-xl ${history? "underline1 text-zinc-50" : "text-zinc-400"}`}>
+                 History
                 </div>
               </div>
-              <div
-                onClick={() => {
-                  setFeedForm(true);
-                }}
-                className=" duration-500 cursor-pointer shadow-md shadow-black justify-start flex items-center px-4 hover:bg-gray-600 rounded-lg py-2"
-              >
-               <AddSvg/> upload 
-              </div>
+             
 
               {feedForm ? (
                 <>
@@ -179,14 +190,14 @@ export default function Profile() {
                     onClick={() => {
                       setFeedForm(false);
                     }}
-                    className="absolute right-8 text-5xl top-16 text-white z-10 "
+                    className=" fixed top-16 right-5 text-5xl text-white z-10 "
                   >
                     <CrossSvg />
-                  </div>{" "}
+                  </div>
                   <FeedForm
                     setLoading={setLoading}
                     setLoadingMessage={setLoadingMessage}
-                  />{" "}
+                  />
                 </>
               ) : (
                 <></>
@@ -226,16 +237,6 @@ export default function Profile() {
               }))
             }
             </div>
-            <button
-              onClick={() => {
-                window.confirm("Logout ?");
-                Cookies.remove("jwt");
-                navigate("/");
-                window.location.reload();
-              }}
-            >
-              Logout
-            </button>
           </div>
         </>
       )}

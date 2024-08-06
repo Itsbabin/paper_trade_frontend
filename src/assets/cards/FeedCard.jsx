@@ -29,10 +29,10 @@ const [like_to_display, setLike] = useState(likes)
 
   return (
     <>
-      <div className="h-max rounded-lg shadow-xl shadow-black w-2/5 tabletMax:w-[98%] p-2 flex justify-center items-center flex-col bg-slate-950">
-        <div className="author h-[20%] p-1 rounded-s-full rounded-e-full w-full bg-slate-800 flex justify-start gap-3 items-center ">
+      <div className="h-max rounded-xl shadow-xl shadow-zinc-800 w-2/5 tabletMax:w-[98%] p-4 flex justify-center items-center flex-col bg-zinc-950">
+        <div className="author h-[20%] p-1 rounded-s-full rounded-e-full w-full bg-zinc-900 flex justify-start gap-3 items-center font-bold ">
           <img
-            className="h-[40px] object-contain aspect-square rounded-full"
+            className="h-[40px] object-fill aspect-square rounded-full"
             src={authImage}
             alt=""
           />
@@ -52,10 +52,10 @@ const [like_to_display, setLike] = useState(likes)
         >
           <div
             id="likeIcon"
-            className="h-[35px] w-[70px] rounded-s-full rounded-e-full hover:bg-slate-800 hover:scale-110"
+            className="h-[35px] w-[70px] flex justify-center items-center rounded-s-full cursor-pointer rounded-e-full hover:bg-slate-800 hover:scale-110"
             onClick={LikePost}
           >
-            <svg viewBox="0 0 16 16" id="like">
+            <svg viewBox="0 0 16 16" id="like" height='35px' width='35px'>
               <path
                 fill="#1565C0"
                 d="M0 7.5v7a.5.5 0 0 0 .5.5H5V7H.5a.5.5 0 0 0-.5.5z"
@@ -68,9 +68,9 @@ const [like_to_display, setLike] = useState(likes)
           </div>
           <div
             id="commentIcon"
-            className="h-[35px] w-[70px] rounded-s-full rounded-e-full hover:bg-slate-800 hover:scale-110"
+            className="h-[35px] w-[70px] flex justify-center cursor-pointer items-center rounded-s-full rounded-e-full hover:bg-slate-800 hover:scale-110"
           >
-            <svg viewBox="2 2 28 28" id="comment">
+            <svg viewBox="2 2 28 28" id="comment" height='35px' width='35px'>
               <path
                 fill="#ffffff"
                 d="M25.784 21.017A10.992 10.992 0 0 0 27 16c0-6.065-4.935-11-11-11S5 9.935 5 16s4.935 11 11 11c1.742 0 3.468-.419 5.018-1.215l4.74 1.185a.996.996 0 0 0 .949-.263 1 1 0 0 0 .263-.95l-1.186-4.74zm-2.033.11.874 3.498-3.498-.875a1.006 1.006 0 0 0-.731.098A8.99 8.99 0 0 1 16 25c-4.963 0-9-4.038-9-9s4.037-9 9-9 9 4.038 9 9a8.997 8.997 0 0 1-1.151 4.395.995.995 0 0 0-.098.732z"

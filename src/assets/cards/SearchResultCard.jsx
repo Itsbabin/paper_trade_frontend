@@ -24,8 +24,7 @@ export default function SearchResultCard({ token, symbol, name, exch_seg }) {
            e.preventDefault()
            AddToWatchlist()
         }}>
-        {" "}
-        <AddSvg />{" "}
+        <AddSvg />
       </div>
     </Link>
   );

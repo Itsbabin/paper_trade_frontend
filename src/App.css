@@ -1,10 +1,3 @@
-svg {
-    width: 95%;
-    height: 95%;
-   }
-.profilePic:hover img {
-    opacity: 0.8;
-}
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -49,4 +42,29 @@ svg {
     outline: none;
     border: none;
   }
+
+
+.underline1::after{
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 90px;
+  background-color: white;
+  transform: translate(-17px,20px);
+  border-radius: 20px;
+}
+.underline2::after{
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 90px;
+  background-color: white;
+  transform: translate(-0px,20px);
+  border-radius: 20px;
+  
+}
+
+#profileOptions{
+  transform: translateY(-3px);
+}
 

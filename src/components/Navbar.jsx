@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-export default function Navbar() {
+export default function Navbar({ setDropdownActive , dropdownActive}) {
   let user = useSelector((state) => state.user);
   return (
     <>
-      <nav className="w-screen z-20 bg-slate-950 flex flex-wrap gap-3 text-blue-200 h-14 items-start justify-between px-5 py-2 fixed">
+      <nav className="w-screen z-20 bg-black flex flex-wrap gap-3 text-zinc-200 h-14 items-center justify-between px-3 fixed ">
         <div className="" id="navIcon">
           <Link to="/" className="h-12 w-12"> 
             <BearSvg/>
@@ -19,14 +19,21 @@ export default function Navbar() {
           id="navItem"
           >
           <SearchBar/>
-          <Link className="font-bold" to="/watchlist">watchlist</Link>
-          <Link className="font-bold" to="/markets">markets</Link>
+          <Link className="font-bold mt-1" to="/watchlist">watchlist</Link>
+          <Link className="font-bold mt-1" to="/markets">markets</Link>
           {Cookies.get("jwt") !== undefined ? (
-            <Link className="flex justify-center items-start" to="/profile">
-              <img className="h-9 aspect-square rounded-full object-contain" src={user.userData?.profile_pic_URL}  />
-            </Link>
+            <div className="flex justify-center items-center cursor-pointer h-11 px-3 py-2" onClick={() => {
+              if (dropdownActive === "-300px") {
+                setDropdownActive("55px")
+              }
+              else{
+                setDropdownActive("-300px")
+              }
+            }}>
+              <img className="h-11 aspect-square rounded-full object-fill" src={user.userData?.profile_pic_URL === ''?  './public/DP.png' : user.userData?.profile_pic_URL }  />
+            </div>
           ) : (
-            <Link className="font-bold" to="/login">login</Link>
+            <Link className="font-bold mt-1" to="/login">login</Link>
           )}
         </div>
         <div className="tablet:hidden  bg-white" id="toggleButton">

@@ -71,7 +71,7 @@ export default function FeedForm({setLoading , setLoadingMessage}) {
           </label>
           <label
             htmlFor="caption"
-            className="h-full tabletMax:h-1/2 tabletMax:w-full w-1/2 bg-slate-900 tabletMax:rounded-b-2xl tablet:rounded-e-2xl flex justify-around items-center flex-col"
+            className="h-full tabletMax:h-1/2 tabletMax:w-full w-1/2 bg-zinc-950 tabletMax:rounded-b-2xl tablet:rounded-e-2xl flex justify-around items-center flex-col"
           >
             Whats on your mind : 
             <textarea
@@ -79,9 +79,9 @@ export default function FeedForm({setLoading , setLoadingMessage}) {
               onChange={(e) => {
                 setcaption(e.target.value);
               }}
-              className=" p-2 w-5/6 min-h-12 max-h-max rounded-lg bg-slate-800"
+              className=" p-2 w-5/6 min-h-12 max-h-max rounded-lg bg-zinc-900"
             />
-            <button onClick={upload} className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 cursor-pointer">
+            <button onClick={upload} className="py-2.5 px-5 me-2 mb-2 text-sm bg-zinc-100 text-black rounded-3xl font-bold cursor-pointer">
               Upload
             </button>
           </label>
